@@ -1,13 +1,19 @@
 package com.example.mystoryapp.data.remote.paging
 
 import android.util.Log
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.mystoryapp.data.remote.response.Story
 import com.example.mystoryapp.data.remote.retrofit.ApiConfig
 import com.example.mystoryapp.data.remote.retrofit.ApiService
+import com.example.mystoryapp.viewmodel.UserPreferences
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
-class StoryPagingSource(private val apiService: ApiService) : PagingSource<Int, Story>() {
+class StoryPagingSource(private val apiService: ApiService, private val pref: UserPreferences) : PagingSource<Int, Story>() {
     companion object {
         const val INITIAL_PAGE_INDEX = 1
         const val TAG = "StoryPagingSource"
@@ -23,7 +29,7 @@ class StoryPagingSource(private val apiService: ApiService) : PagingSource<Int, 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Story> {
         return try {
             Log.i(TAG, "in load func")
-            val token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c2VyLXpGbWgxSHZaNTducHBwR00iLCJpYXQiOjE2ODE4MTMwMDZ9.tyRW_szfIwlKIWXcvBjpbjZKA5AgjmwHbjk0JoNcmbo"
+            val token = "Bearer ${getToken()}"
             val position = params.key ?: INITIAL_PAGE_INDEX
             val responseData = apiService.getAllStory2(token, position, params.loadSize)
 
@@ -39,4 +45,8 @@ class StoryPagingSource(private val apiService: ApiService) : PagingSource<Int, 
         }
     }
 
+    private fun getToken() : String {
+        val token = runBlocking { pref.getToken().first() }
+        return token
+    }
 }

@@ -32,7 +32,7 @@ class DetailActivity : AppCompatActivity() {
         val id = intent.getStringExtra(EXTRA_ID)!!
 
         val pref = UserPreferences.getInstance(dataStore)
-        val repo = StoryRepository()
+        val repo = StoryRepository(pref)
         detailViewModel = ViewModelProvider(this, ViewModelFactory(pref, repo)).get(
             DetailViewModel::class.java
         )

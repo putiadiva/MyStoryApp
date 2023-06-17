@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG, "Object datastore di main activity: ${dataStore}")
 
         val pref = UserPreferences.getInstance(dataStore)
-        val repo = StoryRepository()
+        val repo = StoryRepository(pref)
         mainViewModel = ViewModelProvider(this, ViewModelFactory(pref, repo)).get(
             MainViewModel::class.java
         )

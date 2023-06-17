@@ -29,7 +29,7 @@ class AuthenticationActivity : AppCompatActivity() {
         Log.i(TAG, "Object datastore di auth activity: ${dataStore}")
 
         val pref = UserPreferences.getInstance(dataStore)
-        val repo = StoryRepository()
+        val repo = StoryRepository(pref)
         authenticationViewModel = ViewModelProvider(this, ViewModelFactory(pref, repo)).get(
             AuthenticationViewModel::class.java
         )

@@ -50,7 +50,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         val pref = UserPreferences.getInstance(dataStore)
-        val repo = StoryRepository()
+        val repo = StoryRepository(pref)
         mapViewModel = ViewModelProvider(this, ViewModelFactory(pref, repo)).get(
             MapViewModel::class.java
         )

@@ -73,7 +73,7 @@ class AddStoryActivity : AppCompatActivity() {
         binding.btnUpload.setOnClickListener { upload() }
 
         val pref = UserPreferences.getInstance(dataStore)
-        val repo = StoryRepository()
+        val repo = StoryRepository(pref)
         viewModel = ViewModelProvider(this, ViewModelFactory(pref, repo)).get(
             AddStoryViewModel::class.java
         )
