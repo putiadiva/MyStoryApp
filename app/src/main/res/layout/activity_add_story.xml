@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AddStoryActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.AddStoryActivity"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/iv_preview"
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_baseline_image_24"/>
+
+        <Button
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/iv_preview"
+            app:layout_constraintTop_toBottomOf="@+id/iv_preview"
+            app:layout_constraintEnd_toStartOf="@+id/btn_gallery"
+            android:text="Camera"
+            android:layout_marginTop="16dp"/>
+
+        <Button
+            android:id="@+id/btn_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/iv_preview"
+            app:layout_constraintTop_toBottomOf="@+id/iv_preview"
+            app:layout_constraintStart_toEndOf="@+id/btn_camera"
+            android:text="Galery"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edt_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_camera"
+            android:layout_marginTop="16dp"
+            android:hint="Description"
+            android:lines="8"/>
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/edt_description"
+            android:text="Upload"
+            android:layout_marginTop="16dp"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyStoryApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu mauris nisi. Nunc lectus massa, dictum vel libero id, tincidunt congue sem. Vestibulum nulla tortor, facilisis sed interdum quis, pellentesque eu diam. Maecenas viverra convallis finibus. Maecenas feugiat mauris vel velit euismod venenatis. Cras accumsan et ligula quis laoreet. Phasellus pulvinar nunc eu sapien sodales vulputate. Curabitur vel efficitur diam, ut feugiat nunc. Curabitur maximus vulputate eleifend. Vestibulum molestie dui eget varius tempor. Etiam finibus mauris sed odio pharetra, sed dapibus est rutrum. Curabitur lacinia nulla vitae orci feugiat, sit amet blandit ante lobortis. Ut nec vulputate augue, ullamcorper gravida tortor.</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>
